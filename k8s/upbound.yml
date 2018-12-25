@@ -18,8 +18,8 @@ spec:
         app: upbound
     spec:
       containers:
-      - image: alexeldeib/upbound-app
-        name: upbound-app
+      - image: alexeldeib/upbound
+        name: upbound
         ports:
         - containerPort: 8080
           name: http

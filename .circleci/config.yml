@@ -1,9 +1,0 @@
-version: 2
-jobs:
-  build:
-    machine: true
-    steps:
-      - checkout
-      - run: docker login -u $docker_username -p $docker_password
-      - run: docker build -t alexeldeib/upbound-app .
-      - run: docker push alexeldeib/upbound-app
