@@ -3,9 +3,8 @@ package util
 import (
 	"reflect"
 
-	log "github.com/sirupsen/logrus"
-
 	"github.com/alexeldeib/upbound/pkg/types"
+	log "github.com/sirupsen/logrus"
 )
 
 // CheckTitle returns true if the title is in use by an existing application.
