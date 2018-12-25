@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: upbound
-    keel.sh/policy: all
+    keel.sh/policy: force
     keel.sh/trigger: poll  
   name: upbound
 spec:
@@ -21,6 +21,7 @@ spec:
     spec:
       containers:
       - image: alexeldeib/upbound
+        imagePullPolicy: Always
         name: upbound
         ports:
         - containerPort: 8080
