@@ -358,6 +358,3 @@ Due to my unfamiliarity with Go, I needed to figure out a way to test my code pr
 While scaffolding out some basic tests I found that things would be much easier if I refactored some components to make them more modular. I opted to include a new `Server` type to contain all global state (i.e., persisted application metadata and our validator instance). This enabled me to do setup and tear down of test cases much more easily. For example, I can clear the persisted application metadata on the server between test cases for isolation, or within a single case run multiple requests to test complex scenarios. 
 
 I also found some utility functions greatly simplified the experience. Thanks [@benbjohnson](https://github.com/benbjohnson/testing)!
-
-
-

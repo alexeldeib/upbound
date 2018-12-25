@@ -4,6 +4,8 @@ metadata:
   creationTimestamp: null
   labels:
     app: upbound
+    keel.sh/policy: all
+    keel.sh/trigger: poll  
   name: upbound
 spec:
   replicas: 1

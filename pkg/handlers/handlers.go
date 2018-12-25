@@ -58,13 +58,6 @@ func (srv *Server) Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Check if a conflicting application already exists
-	if util.CheckTitle(srv.Applications, metadata.Title) {
-		w.WriteHeader(http.StatusConflict)
-		fmt.Fprintf(w, "An application with title %s already exists, please use a unique title.", metadata.Title)
-		return
-	}
-
 	w.WriteHeader(http.StatusCreated)
 	srv.Applications = append(srv.Applications, metadata)
 	log.WithFields(log.Fields{"name": metadata.Title}).Info("Object added")
