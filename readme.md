@@ -190,7 +190,7 @@ if err != nil {
 
 It seemed appropriate to me to store applications on some unique key, since we are talking about a user describing an application. What would the expected behavior be with two requests to create identical applications? `409 Conflict` or `201 Created`? I don't have a strong personal stance on this and my query implementation works either way.
 
-I chose to use `Title` field as a unique field and handle conflicts by failing to create the application and returning `HTTP 409 Conflict`. 
+I chose to use `Title` field as a unique field and handle conflicts by failing to create the application and returning `HTTP 409 Conflict`.
 
 n.b.: delete these lines of code and everything works exactly the same.
 
