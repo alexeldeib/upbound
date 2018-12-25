@@ -1,7 +1,7 @@
 services:
   - docker
 
-before_install:
+script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t alexeldeib/upbound .
+  - docker build --pull --cache-from=alexeldeib/upbound -t alexeldeib/upbound .
   - docker push alexeldeib/upbound
