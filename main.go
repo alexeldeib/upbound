@@ -73,10 +73,10 @@ func create(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "An application with title %s already exists, please use a unique title.", metadata.Title)
 		return
 	}
+
 	w.WriteHeader(http.StatusCreated)
 	applications = append(applications, metadata)
 	log.WithFields(log.Fields{"name": metadata.Title}).Info("Object added")
-
 	return
 }
 
@@ -100,6 +100,12 @@ func search(w http.ResponseWriter, r *http.Request) {
 
 	log.WithFields(log.Fields{"value": *metadata}).Info("Received a value to check!")
 	matches := util.Filter(applications, metadata, util.Compare)
-	fmt.Fprintf(w, "%s\n\n", matches)
+	data, err := yaml.Marshal(matches)
+	if err != nil {
+		http.Error(w, "Failed to marshal search matches. This is likely a server error.", http.StatusInternalServerError)
+		return
+	}
+	w.WriteHeader(http.StatusOK)
+	w.Write(data)
 	return
 }
