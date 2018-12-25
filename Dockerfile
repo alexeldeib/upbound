@@ -1,4 +1,4 @@
-FROM golang:1.11.4-alpine3.8 as build-env
+FROM golang:1.11.4-alpine3.8 as build
 
 RUN mkdir /upbound
 WORKDIR /upbound
